@@ -1,11 +1,16 @@
 package com.tirexmurina.dishapp.domain.repository
 
+import com.tirexmurina.dishapp.data.CategoryAPI
+import javax.inject.Inject
+
 interface ICategoryRepository{
-    fun getAllCategories() : String
+    suspend fun getAllCategories() : String
 }
 
-class CategoryRepository : ICategoryRepository{
-    override fun getAllCategories(): String {
-        return "page 42"
+class CategoryRepository @Inject constructor(
+    private val service: CategoryAPI
+) : ICategoryRepository{
+    override suspend fun getAllCategories(): String {
+        return service.getAllCategories()
     }
 }
