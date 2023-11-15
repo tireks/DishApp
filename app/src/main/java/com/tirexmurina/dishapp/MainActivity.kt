@@ -6,7 +6,10 @@ import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
 import com.tirexmurina.dishapp.screen.CategoryScreen
 import com.tirexmurina.dishapp.ui.theme.DishAppTheme
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
