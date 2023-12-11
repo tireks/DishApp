@@ -4,7 +4,12 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.tirexmurina.dishapp.screen.CategoryScreen
+import com.tirexmurina.dishapp.screen.DishesScreen
 import com.tirexmurina.dishapp.ui.theme.DishAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -23,7 +28,27 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun DishApp(){
+    //TODO
+    /**
+     * split this NavHost
+     * composables - cs
+     * composables - DishesScreen
+     *
+     * **/
+
+    val navController = rememberNavController()
+    NavHost(navController = navController, startDestination = "category"){
+        composable("category") {
+            CategoryScreen()
+        }
+
+        composable("dishes") {
+            DishesScreen()
+        }
+    }
     CategoryScreen()
+
+    //DishesScreen()
 }
 
 /*

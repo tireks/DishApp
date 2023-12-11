@@ -18,6 +18,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CardElevation
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -45,6 +46,7 @@ fun CategoryScreen(
     viewModel: CategoryViewModel = hiltViewModel()
 ){
     val listOfCategories by remember { viewModel.listOfCategories }
+
     LazyColumn {
         items(listOfCategories) { item ->
             SingleCategoryItem(category = item)
@@ -95,6 +97,7 @@ fun SingleCategoryItem(
 
 }
 
+/*
 @Preview
 @Composable
 fun PreviewItem(){
@@ -132,4 +135,4 @@ fun PreviewRecycler(){
             PreviewItem()
         }
     }
-}
+}*/
