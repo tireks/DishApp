@@ -23,11 +23,7 @@ class CategoryViewModel @Inject constructor(
     init {
         viewModelScope.launch {
             val categoriesList = useCase()
-
-            //caterepo -> catefor
             categoriesList.categories.forEach{
-                /*Log.d("BK", it.strCategory)
-                Log.d("BK", it.strCategoryDescription)*/
                 _listOfCategories.value = categoriesList.categories
             }
 
