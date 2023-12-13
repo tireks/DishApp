@@ -2,6 +2,7 @@ package com.tirexmurina.dishapp.screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -43,13 +44,16 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 
 @Composable
 fun CategoryScreen(
-    viewModel: CategoryViewModel = hiltViewModel()
+    viewModel: CategoryViewModel = hiltViewModel(),
+    onItemClick: (String ) -> Unit
 ){
     val listOfCategories by remember { viewModel.listOfCategories }
 
     LazyColumn {
         items(listOfCategories) { item ->
-            SingleCategoryItem(category = item)
+            SingleCategoryItem(category = item, onClick = {
+                onItemClick(it)
+            })
         }
     }
 
@@ -57,11 +61,13 @@ fun CategoryScreen(
 
 @Composable
 fun SingleCategoryItem(
-    category: Category
+    category: Category,
+    onClick: (String) -> Unit
 ){
     Card(
         modifier = Modifier
             .padding(8.dp)
+            .clickable { onClick(category.strCategory) }
             .fillMaxWidth(), elevation = CardDefaults.cardElevation(
             defaultElevation = 10.dp
         )
