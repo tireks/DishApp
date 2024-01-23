@@ -1,4 +1,4 @@
-package com.tirexmurina.dishapp.data
+package com.tirexmurina.dishapp.category.data
 
 data class Category(
     val idCategory: String,

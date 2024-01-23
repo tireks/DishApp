@@ -1,7 +1,7 @@
-package com.tirexmurina.dishapp.domain.repository
+package com.tirexmurina.dishapp.category.domain.repository
 
-import com.tirexmurina.dishapp.data.CategoryAPI
-import com.tirexmurina.dishapp.data.CategoryResponse
+import com.tirexmurina.dishapp.category.data.CategoryAPI
+import com.tirexmurina.dishapp.category.data.CategoryResponse
 import javax.inject.Inject
 
 interface ICategoryRepository{
@@ -10,7 +10,7 @@ interface ICategoryRepository{
 
 class CategoryRepository @Inject constructor(
     private val service: CategoryAPI
-) : ICategoryRepository{
+) : ICategoryRepository {
     override suspend fun getAllCategories(): CategoryResponse {
         return service.getAllCategories()
     }

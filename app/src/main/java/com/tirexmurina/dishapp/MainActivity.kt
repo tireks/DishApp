@@ -10,11 +10,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.tirexmurina.dishapp.screen.CategoryScreen
-import com.tirexmurina.dishapp.screen.DishesScreen
+import com.tirexmurina.dishapp.category.screen.CategoryScreen
+import com.tirexmurina.dishapp.dishes.screen.DishesScreen
 import com.tirexmurina.dishapp.ui.theme.DishAppTheme
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -41,13 +40,12 @@ fun DishApp(){
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = "category"){
         composable("category") {
-            CategoryScreen(onItemClick = {category ->
-
+            CategoryScreen(onItemClick = { category ->
                 navController.navigate("dishes/${category}")
             })
         }
 
-        composable("dishes", arguments = listOf(navArgument("category"){
+        composable("dishes/{category}", arguments = listOf(navArgument("category"){
             type = NavType.StringType
         })) {
 
@@ -55,7 +53,7 @@ fun DishApp(){
                 it.arguments?.getString("category")
             }
 
-            DishesScreen("")
+            DishesScreen(categoryStr)
         }
     }
     //CategoryScreen()

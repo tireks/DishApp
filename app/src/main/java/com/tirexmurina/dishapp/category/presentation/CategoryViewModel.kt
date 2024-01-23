@@ -1,13 +1,12 @@
-package com.tirexmurina.dishapp.presentation
+package com.tirexmurina.dishapp.category.presentation
 
-import android.util.Log
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.tirexmurina.dishapp.data.Category
-import com.tirexmurina.dishapp.domain.usecase.IGetCategoriesUseCase
+import com.tirexmurina.dishapp.category.data.Category
+import com.tirexmurina.dishapp.category.domain.usecase.IGetCategoriesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

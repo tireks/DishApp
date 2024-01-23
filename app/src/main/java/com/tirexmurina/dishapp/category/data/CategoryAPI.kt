@@ -1,4 +1,4 @@
-package com.tirexmurina.dishapp.data
+package com.tirexmurina.dishapp.category.data
 
 import retrofit2.http.GET
 

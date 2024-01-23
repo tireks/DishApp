@@ -1,7 +1,7 @@
-package com.tirexmurina.dishapp.domain.usecase
+package com.tirexmurina.dishapp.category.domain.usecase
 
-import com.tirexmurina.dishapp.data.CategoryResponse
-import com.tirexmurina.dishapp.domain.repository.ICategoryRepository
+import com.tirexmurina.dishapp.category.data.CategoryResponse
+import com.tirexmurina.dishapp.category.domain.repository.ICategoryRepository
 import javax.inject.Inject
 
 interface IGetCategoriesUseCase {
@@ -13,7 +13,7 @@ interface IGetCategoriesUseCase {
 
 class GetCategoriesUseCase @Inject constructor(
     private val repository: ICategoryRepository
-): IGetCategoriesUseCase{
+): IGetCategoriesUseCase {
 
     override suspend fun invoke(): CategoryResponse {
         return repository.getAllCategories()

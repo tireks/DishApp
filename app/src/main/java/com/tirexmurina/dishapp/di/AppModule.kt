@@ -1,20 +1,18 @@
 package com.tirexmurina.dishapp.di
 
-import android.app.Activity
-import com.tirexmurina.dishapp.data.CategoryAPI
-import com.tirexmurina.dishapp.domain.repository.CategoryRepository
-import com.tirexmurina.dishapp.domain.repository.ICategoryRepository
-import com.tirexmurina.dishapp.domain.usecase.GetCategoriesUseCase
-import com.tirexmurina.dishapp.domain.usecase.IGetCategoriesUseCase
+import com.tirexmurina.dishapp.category.data.CategoryAPI
+import com.tirexmurina.dishapp.category.domain.repository.CategoryRepository
+import com.tirexmurina.dishapp.category.domain.repository.ICategoryRepository
+import com.tirexmurina.dishapp.category.domain.usecase.GetCategoriesUseCase
+import com.tirexmurina.dishapp.category.domain.usecase.IGetCategoriesUseCase
+import com.tirexmurina.dishapp.dishes.data.DishesAPI
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.scopes.ActivityScoped
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.converter.scalars.ScalarsConverterFactory
 import javax.inject.Singleton
 
 
@@ -34,8 +32,14 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun providesCategoryService(retrofit: Retrofit): CategoryAPI{
+    fun providesCategoryService(retrofit: Retrofit): CategoryAPI {
         return retrofit.create(CategoryAPI::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun providesDishesService(retrofit: Retrofit): DishesAPI {
+        return retrofit.create(DishesAPI::class.java)
     }
 
     @Module
